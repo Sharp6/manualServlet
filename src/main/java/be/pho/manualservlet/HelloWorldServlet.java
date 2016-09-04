@@ -2,8 +2,12 @@ package be.pho.manualservlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.*;
-import javax.servlet.http.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/hello")
 public class HelloWorldServlet extends HttpServlet {
@@ -14,9 +18,9 @@ public class HelloWorldServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
-		PrintWriter writer.getWriter();
+		PrintWriter writer = resp.getWriter();
 		writer.println(PAGE_HEADER);
-		writer.println("<h1>HELLO FUCKING JAVA WORLD.</h1>");
+		writer.println("<h1>HELLO CRUEL JAVA WORLD.</h1>");
 		writer.println(PAGE_FOOTER);
 		writer.close();
 	}
